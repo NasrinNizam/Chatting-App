@@ -6,6 +6,10 @@ import { IoEyeOff } from "react-icons/io5";
 import { IoMdEye } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import '../SignupCompo/signup.css'
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+  
+
 export const SignUp = () => {
     const [Name , setName]                              = useState('')
     const [NameError , setNameError]                    = useState('')
@@ -55,22 +59,33 @@ export const SignUp = () => {
     if(!password){
         setPasswrodError('Enter your password')
     }
-    if(!confirmError){
+    if(!confirmPassword){
         setConfirmError('Confirm your password')
     }
     else{
         
-      ''
+        toast.success('SignUp successfully done!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+            });
+            
     }
   }
   return (
     <>
      <div className="container">
-            <div className="form flex justify-around items-center w-full h-screen bg-[#283C46] ">
+            <div className="form flex justify-around items-center w-full h-screen bg-[#283C46] bg-opacity-70 ">
                 <div className="animation w-[500px] ">
                 <Lottie animationData={signup} />
                 </div>
-                <div className="main-form  py-5 px-8 rounded-lg bg-[#D9D9D1] ">
+                <div className="main_form  py-5 px-8 rounded-lg bg-[#D9D9D1] ">
                     <h1 className="login-head text-center text-3xl">Sign Up</h1>
                     <form onSubmit={handelSubmit}>
                         <lebel>Full Name</lebel>
@@ -112,7 +127,7 @@ export const SignUp = () => {
                         </div>
                         <p className='error'>{confirmError} </p>
                         <button type='submit' className="loginButton">Sign Up</button>
-                        <p>Already have an account? <Link to="/" className="text-[16px] text-[#4A6CD1] font-poppins font-bold " >Login</Link> </p>
+                        <p>Already have an account? <Link to="/" className="text-[16px] text-[#4A6CD] font-poppins font-bold " >Login</Link> </p>
                     </form>
                 </div>
             </div>

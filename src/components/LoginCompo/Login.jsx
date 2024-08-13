@@ -5,6 +5,10 @@ import { IoEyeOff } from "react-icons/io5";
 import { IoMdEye } from "react-icons/io";
 import '../LoginCompo/login.css'
 import { Link } from 'react-router-dom';
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+  
+
 
 export const Login = () => {
     // ====== variable part =====//
@@ -38,7 +42,18 @@ export const Login = () => {
     }
     else{
         
-        console.log('login hoice')
+        toast.success('Login successfull!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+            });
+            
     }
   }
 
@@ -69,9 +84,10 @@ export const Login = () => {
                           
                           <input onChange={handelPass} type={show?'text' :'password'} placeholder='Enter your password' />
                         </div>
+                        <p className="text-right">Forgotten password?</p>
                         <p className='error'>{passwordError} </p>
-                        <br/>
-                        <button type='submit' className="loginButton">Login</button>
+                        
+                        <button type='submit' className="login-Button">Login</button>
                         <p>Don't have any account? <Link to="/signuppage" className="text-lg font-poppins font-bold " >SignUp</Link> </p>
                     </form>
                 </div>

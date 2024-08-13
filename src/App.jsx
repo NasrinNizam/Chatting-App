@@ -5,6 +5,7 @@ import { LayoutOne } from './Layouts/LayoutOne'
 import { LoginPage } from './Pages/LoginPage'
 import { SignUpPage } from './Pages/SignUpPage'
 import { NotFoundPage } from './Pages/NotFoundPage'
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   const route = createBrowserRouter(
@@ -21,6 +22,8 @@ function App() {
   return (
     <>
       <RouterProvider router={route}/>
+      <ToastContainer />
+
     </>
   )
 }
